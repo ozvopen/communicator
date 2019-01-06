@@ -1,0 +1,52 @@
+$bg: #0d161b;
+$fontBasicSize: 14px;
+$font: $fontBasicSize "Open Sans", sans-serif;
+$fontBasicColor: white;
+
+$bubble_padding_top: 10px;
+$bubble_padding_bottom: $bubble_padding_top;
+$scrollbar_thikness: 10px;
+$bubble_padding_vert: $bubble_padding_top + $bubble_padding_bottom;
+$bubble_padding_horiz: $bubble_padding_vert;
+
+//dialog_form:
+$dialog_form_height: 480px;
+$dialog_form_margin_top: 36px;
+$dialog_form_margin_bottom: $dialog_form_margin_top;
+
+$answer_bubble_color: #ccff99;
+$answer_text_color: black;
+
+$question_bubble_color: #99ffff;
+$question_text_color: $answer_text_color;
+$default_border_radius: 30px;
+
+$footer_line_height: $fontBasicSize;
+$footer_height: 1.1428571428571428 * $footer_line_height + 40px;
+
+//dialog_form: tip 
+$tip_max_height: $dialog_form_height / 2;
+$tip_title_padding_top: 16px;
+$tip_title_padding_bottom: $tip_title_padding_top;
+$tip_title_padding_left: 32px;
+$tip_title_padding_right: $tip_title_padding_left + $scrollbar_thikness / 2;
+$tip_title_padding_vert: $tip_title_padding_top + $tip_title_padding_bottom;
+$tip_title_padding_horiz: $tip_title_padding_left + $tip_title_padding_right;
+$tip_title_font_size: 1.2 * $fontBasicSize;
+$tip_title_line_height: 1.2 * $tip_title_font_size;
+$tip_title_max_height: $tip_title_line_height + $tip_title_padding_vert;
+$tip_def_padding_top: $tip_title_max_height;
+$tip_def_padding_bottom: 32px;
+$tip_def_padding_left: 32px;
+$tip_def_padding_right: $tip_def_padding_left + $scrollbar_thikness / 2;
+$tip_def_padding_vert: $tip_def_padding_top + $tip_def_padding_bottom;
+$tip_def_padding_horiz: $tip_def_padding_left + $tip_def_padding_right;
+
+$page_min_height: 256px;
+
+$user_question_padding_vert: $bubble_padding_vert;
+$user_input_line_height: 20px;
+$user_question_bg_color: white;
+$user_input_height: 2 * $user_question_padding_vert + $user_input_line_height;
+
+$dialog_form_tip_padding: 1em;

@@ -1,0 +1,247 @@
+body {
+    background-color: $bg;
+    color: $fontBasicColor;
+    font: $font;
+    @include box-sizing(border-box);
+    text-align: center;
+}
+.logo {
+    font-weight: 600;
+    text-align:center;
+    margin: 1em;
+
+    a {
+        text-decoration: none;
+    }
+
+    .top_text {
+        font-size: 1.75 * $fontBasicSize;
+    }
+
+    .bottom_text {
+        text-transform: uppercase;
+        font-size: 0.75 * $fontBasicSize;
+    }
+}
+header {
+    float: left;
+}
+.dialog-form {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 100%;
+    min-width: 480px;
+    max-width: 640px;
+    overflow: hidden;
+    height: $dialog_form_height;
+    margin: $dialog_form_margin_top 0 $dialog_form_margin_bottom;
+
+    .screen {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-bottom: -$user_input_height;
+        @include box-sizing(border-box);
+        padding-bottom: 2 * $user_input_height;
+
+        .tip {
+            position: absolute;
+            display: none;
+            z-index: 2;
+            width: 100%;
+            max-height: $tip_max_height;
+            background-color: rgba(0, 0, 0, 0.75);
+            padding-bottom: $tip_def_padding_bottom;
+
+            .title {
+                position: absolute;
+                width: 100%;
+                max-height: $tip_title_max_height;
+                padding: $tip_title_padding_top $tip_title_padding_right $tip_title_padding_bottom $tip_title_padding_left;
+                background-color: rgba(0, 0, 0, 0.75);
+                text-align: center;
+                text-indent: -1.2em;
+                overflow-y: scroll;
+                @include box-sizing(border-box);
+
+                .text {
+                    font-weight: 700;
+                    font-size: $tip_title_font_size;
+                    line-height: $tip_title_line_height;
+                }
+
+                &:before {
+                    content:"i";
+                    display: inline-block;
+                    font-weight: 400;
+                    background-color: transparent;
+                    margin: 0 10px;
+                    height: 1.2em;
+                    width: 1.2em;
+                    text-indent: 0;
+                    border-width: 0.1em;
+                    border-color: white;
+                    border-style: solid;
+                    border-radius: 10em;
+                }
+            }
+
+            .def {
+                text-align: left;
+                font-size: 14px;
+                font-weight: 400;
+                width: 100%;
+                max-height: $tip_max_height;
+                text-indent: 1.2em;
+                line-height: 1.6em;
+                @include box-sizing(border-box);
+                padding: $tip_title_max_height $tip_def_padding_right 0 $tip_def_padding_left;
+                overflow-y: scroll;
+
+                > .text + .text {
+                    margin-top: 1em;
+                }
+            }
+        }
+        .dialog-bubbles{
+            height: 100%;
+            overflow-y: scroll;
+
+            .bubble {
+                border-radius:$default_border_radius;
+                color: black;
+                border-width: 1px;
+                border-style: solid;
+                border-color: rgba(255,255,255,0.25);
+                padding: $bubble_padding_top $bubble_padding_horiz $bubble_padding_bottom;
+                position:relative;
+                clear: both;
+                max-width: 70%;
+                text-align: left;
+
+                &.question{
+                    background-color: $question_bubble_color;
+                    float: right;
+                    margin-right: 20px;
+
+                    &:after{
+                        position: absolute;
+                        content:"";
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        bottom: 10%;
+                        right: -0.5 * $default_border_radius;
+                        border-width: $default_border_radius 0 0 $default_border_radius;
+                        border-color: transparent transparent transparent $question_bubble_color;
+                    }
+                }
+
+                &.answer{
+                    background-color: $answer_bubble_color;
+                    float: left;
+                    margin-left: 20px;
+
+                    &:before{
+                        position: absolute;
+                        content:"";
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        top: 10%;
+                        left: -0.5 * $default_border_radius;
+                        border-width: 0 $default_border_radius $default_border_radius 0;
+                        border-color: transparent $answer_bubble_color transparent transparent;
+                    }
+                }
+                .text{
+                    //To be foreground
+                    position: relative;
+                }
+            }
+
+            > .bubble + .bubble {
+                margin-top: 20px;
+            }
+        }
+    }
+    .user-input{
+        width: 100%;
+        height: $user_input_height;
+        position: relative;
+
+        .user-question {
+            border-radius: $default_border_radius;
+            color: black;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgba(255,255,255,0.25);
+            display: inline-block;
+
+            &.text {
+                background-color: $user_question_bg_color;
+                margin-right: 20px;
+                position:relative;
+                width: 65%;
+
+                input {
+                    margin: 0;
+                    border: none;
+                    background: none;
+                    width: 100%;
+                    padding: $bubble_padding_top $bubble_padding_horiz $bubble_padding_bottom;
+                    @include box-sizing(border-box);
+                }
+
+                &:after{
+                    position: absolute;
+                    content:"";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    bottom: 10%;
+                    right: -0.5 * $default_border_radius;
+                    border-width: $default_border_radius 0 0 $default_border_radius;
+                    border-color: transparent transparent transparent $user_question_bg_color;
+                }
+            }
+
+            &.submit {
+                background-color: $question_bubble_color;
+                padding: $bubble_padding_top $bubble_padding_horiz $bubble_padding_bottom;
+                max-width: 30%;
+                vertical-align: -100%;
+            }
+        }
+    }
+}
+footer {
+    width: 100%;
+    height: $footer_height;
+    line-height: $footer_height;
+    text-align: center;
+
+    .text {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;  
+    }
+}
+
+a {
+    color: $fontBasicColor;
+    text-decoration: underline;
+
+    &:hover{
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+//Show stylesheet version
+.verinfo:after{
+    content:" Stytesheet version: " + $VERSION;
+}
+
+@import "style_modules/sticky_footer";

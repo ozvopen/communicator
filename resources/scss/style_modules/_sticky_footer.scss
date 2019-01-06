@@ -1,0 +1,14 @@
+html, body /*, all other parents of wrapper (.page-wrap)*/{
+    height: 100%;
+    min-height: $page_min_height + $footer_height;
+
+    > #page_wrap{
+        min-height: 100%;
+        margin-bottom: -$footer_height;
+        @include box-sizing(border-box);
+        padding-bottom: $footer_height
+    }
+}
+footer {
+    height: $footer_height;
+}
